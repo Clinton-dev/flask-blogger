@@ -1,0 +1,17 @@
+{%extends "layout.html"%}
+
+{% block main_content %}
+    {%for movie in movies %}
+        <article class="media content-section">
+            <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{movie.author}}</a>
+                <small class="text-muted">{{movie.year}}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{movie.name}}</a></h2>
+            <p class="article-content">{{movie.description}}</p>
+            <p class="article-content">Rotten tomato score:{{movie.rating}}</p>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock main_content %}

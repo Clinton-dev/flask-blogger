@@ -32,9 +32,14 @@ def home():
 def about():
     return render_template("about.html")
 
-@app.route("/login")
+@app.route("/login", methods=['GET','POST'])
 def login():
     form = LoginForm()
+    if form.email.data == 'admin@gmail.com' and form.password.data == 'pass':
+        flash('You have logged in successfully', 'success')
+        return redirect(url_for('home'))
+    else:
+        flash('Login unsuccessfull please try again', 'danger')
     return render_template('login.html', title="Login", form = form)
 
 @app.route("/register", methods=['GET','POST'])

@@ -1,10 +1,6 @@
-from math import remainder
-from flask import Flask, flash, render_template,url_for, redirect
-from forms import RegistrationForm, LoginForm
-
-app = Flask(__name__)
-
-app.config['SECRET_KEY'] = 'e11cf5a9529dd1a984dc6a390c1d06094c9b6a2e'
+from flask import flash, render_template,url_for, redirect
+from flaskblog.forms import RegistrationForm, LoginForm
+from flaskblog.models import User, Post
 
 movies = [
     {
@@ -50,6 +46,3 @@ def register():
         return redirect(url_for('home'))
 
     return render_template('register.html', title= 'Register', form = form)
-
-if __name__ == '__main__':
-    app.run(debug=True)

@@ -1,4 +1,5 @@
 from flask import flash, render_template,url_for, redirect
+from flaskblog import app
 from flaskblog.forms import RegistrationForm, LoginForm
 from flaskblog.models import User, Post
 
